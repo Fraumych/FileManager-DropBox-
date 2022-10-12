@@ -23,6 +23,7 @@ const ListFolder = (props) => {
                   }}
                   onMouseLeave={() => {
                      setContextMenuButton(null)
+                     setContextList(false)
                   }}>
 
                   <td style={{ width: '40px' }}> <input type='checkbox' name={item.name} id={item.name} /></td>
