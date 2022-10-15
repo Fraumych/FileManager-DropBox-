@@ -19,37 +19,34 @@ const File = () => {
 
    useEffect(() => {
       if (!localStorage.getItem('token')) {
-
          Authorization().then(data => {
             localStorage.setItem('isAuth', true)
-            localStorage.setItem('token', data.access_token)
-         }).then(() => { window.location.reload() })
-
-      } else if (localStorage.getItem('token') === 'undefined') {
-
-         navigate('/')
-         localStorage.clear()
-         window.location.reload();
-
-      }
-
-      getListFolder().then(res => {
-         if (res.status === 200) { return res.json() }
-         else if (res.status === 401) {
+            localStorage.setItem('token', data.data.access_token)
+         }).then(() => { window.location.reload() }).catch(res => {
             navigate('/')
             localStorage.clear()
             window.location.reload();
-         }
-      }).then(data => setListFolder(data))
+         })
+
+      }
+
+      getListFolder().then(
+         data => {
+            if (data.status === 200) { setListFolder(data.data) }
+            else if (data.status === 401) {
+               navigate('/')
+               localStorage.clear()
+               window.location.reload();
+            }
+         })
    }, [])
 
    const handleClick = (e, folderPath) => {
       e.preventDefault();
-      getListFolder(folderPath).then(res => res.json())
-         .then(result => {
-            setPathFolder(folderPath)
-            setListFolder(result)
-         })
+      getListFolder(folderPath).then(result => {
+         setPathFolder(folderPath)
+         setListFolder(result.data)
+      })
    }
 
    return (

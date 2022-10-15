@@ -64,7 +64,6 @@ const ListFolder = (props) => {
 
                   <td>{item['client_modified'] ? item['client_modified'].replace(/[\T\Z]/g, ' ') : '--'}</td>
                </tr>
-
             )
          })}
       </>

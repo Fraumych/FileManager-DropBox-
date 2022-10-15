@@ -19,8 +19,6 @@ const ContextMenuList = ({ itemName, itemPath }) => {
             <button className='btn' style={{ marginBottom: '2px' }}>Добавить</button>
          </div>
       </div>
-
    )
 }
-
 export default ContextMenuList;

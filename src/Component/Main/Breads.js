@@ -26,11 +26,10 @@ const Breads = (props) => {
 
    const handleClickBack = (e) => {
       e.preventDefault()
-      getListFolder(pathBack).then(res => res.json())
-         .then(result => {
-            props.PathFolder(pathBack)
-            props.ListFolder(result)
-         })
+      getListFolder(pathBack).then(result => {
+         props.PathFolder(pathBack)
+         props.ListFolder(result.data)
+      })
 
    }
 

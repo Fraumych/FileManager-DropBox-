@@ -21,18 +21,19 @@ const AuthInfo = () => {
 
    useEffect(() => {
       if (isAuth) {
-         accountName().then(res => {
-            if (res.status === 200) { return res.json() }
-            else if (res.status === 401) {
+         accountName().then(data => {
+            if (data.status === 200) {
+               {
+                  setUserName(data.data.name.familiar_name)
+                  setUserPhoto(data.data.profile_photo_url)
+               }
+            }
+            else if (data.status === 401) {
                navigate('/')
                localStorage.clear()
                window.location.reload();
             }
          })
-            .then(data => {
-               setUserName(data.name.familiar_name)
-               setUserPhoto(data.profile_photo_url)
-            })
       }
    }, [])
 
