@@ -1,4 +1,3 @@
-import { makeAutoObservable } from "mobx";
 import { createContext, useState } from "react";
 
 export const UserContext = createContext()

@@ -1,24 +1,26 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { APIContext } from "../APIrequest";
-import Toolbar from "../Component/Main/Toolbar";
-import Breads from "../Component/Main/Breads";
-import Modal from "../Component/Modal";
-import ListFolder from "../Component/Main/ListFolder"
-import "../Component/ContextMenu.css"
+import Toolbar from "../Component/Main/ToolBar/Toolbar";
+import BreadCrumbs from "../Component/Main/BreadCrumbs/Breads";
+import ListFolder from "../Component/Main/Content/ListFolder/ListFolder"
+import { UserContext } from "../UserStore";
 
 const File = () => {
    const { Authorization, getListFolder } = useContext(APIContext)
+   const { isAuth } = useContext(UserContext)
+   const navigate = useNavigate()
+
    const [listFolder, setListFolder] = useState(
       {
          entries: [],
       })
+
    const [pathFolder, setPathFolder] = useState('')
-   const [modalActive, setModalActive] = useState(false)
-   const navigate = useNavigate()
+
 
    useEffect(() => {
-      if (!localStorage.getItem('token')) {
+      if (!isAuth) {
 
          Authorization().then(res => {
             localStorage.setItem('isAuth', true)
@@ -31,14 +33,13 @@ const File = () => {
             })
       }
 
-      getListFolder().then(
+      if (isAuth) getListFolder().then(
          res => {
-            if (res.status === 200) { setListFolder(res.data) }
-            else if (res.status === 401) {
-               navigate('/')
-               localStorage.clear()
-               window.location.reload();
-            }
+            setListFolder(res.data)
+         }).catch(() => {
+            navigate('/')
+            localStorage.clear()
+            window.location.reload();
          })
    }, [])
 
@@ -52,9 +53,8 @@ const File = () => {
 
    return (
       <>
-         <Modal active={modalActive} setActive={setModalActive} />
          <Toolbar />
-         <Breads currentPathFolder={pathFolder} PathFolder={setPathFolder} ListFolder={setListFolder} />
+         <BreadCrumbs currentPathFolder={pathFolder} PathFolder={setPathFolder} ListFolder={setListFolder} />
 
          <table className="table table-bordered">
             <thead>

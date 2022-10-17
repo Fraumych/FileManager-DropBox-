@@ -1,5 +1,5 @@
 import React from "react";
-import './Main/Modal.css'
+import './Modal.css'
 
 const Modal = ({ active, setActive }) => {
 

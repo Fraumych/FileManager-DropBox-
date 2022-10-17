@@ -11,33 +11,26 @@ const AuthInfo = () => {
    const { isAuth, setIsAuth } = useContext(UserContext)
    const navigate = useNavigate()
 
+   useEffect(() => {
+
+      if (isAuth) {
+         accountName().then(data => {
+            setUserName(data.data.name.familiar_name)
+            setUserPhoto(data.data.profile_photo_url)
+         }).catch(() => {
+            navigate('/')
+            localStorage.clear()
+            window.location.reload();
+         })
+      }
+   }, [])
+
    const handleLogOut = (e) => {
       e.preventDefault()
       setIsAuth(localStorage.setItem('isAuth', false))
       localStorage.clear()
       navigate('/')
    }
-
-
-   useEffect(() => {
-      if (isAuth) {
-         accountName().then(data => {
-            if (data.status === 200) {
-               {
-                  setUserName(data.data.name.familiar_name)
-                  setUserPhoto(data.data.profile_photo_url)
-               }
-            }
-            else if (data.status === 401) {
-               navigate('/')
-               localStorage.clear()
-               window.location.reload();
-            }
-         })
-      }
-   }, [])
-
-
 
    return (
       <div style={{ display: 'flex', alignItems: 'center', }}>{
