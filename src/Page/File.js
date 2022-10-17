@@ -19,21 +19,22 @@ const File = () => {
 
    useEffect(() => {
       if (!localStorage.getItem('token')) {
-         Authorization().then(data => {
-            localStorage.setItem('isAuth', true)
-            localStorage.setItem('token', data.data.access_token)
-         }).then(() => { window.location.reload() }).catch(res => {
-            navigate('/')
-            localStorage.clear()
-            window.location.reload();
-         })
 
+         Authorization().then(res => {
+            localStorage.setItem('isAuth', true)
+            localStorage.setItem('token', res.data.access_token)
+         }).then(() => { window.location.reload() })
+            .catch(() => {
+               navigate('/')
+               localStorage.clear()
+               window.location.reload();
+            })
       }
 
       getListFolder().then(
-         data => {
-            if (data.status === 200) { setListFolder(data.data) }
-            else if (data.status === 401) {
+         res => {
+            if (res.status === 200) { setListFolder(res.data) }
+            else if (res.status === 401) {
                navigate('/')
                localStorage.clear()
                window.location.reload();
@@ -43,9 +44,9 @@ const File = () => {
 
    const handleClick = (e, folderPath) => {
       e.preventDefault();
-      getListFolder(folderPath).then(result => {
+      getListFolder(folderPath).then(res => {
          setPathFolder(folderPath)
-         setListFolder(result.data)
+         setListFolder(res.data)
       })
    }
 
