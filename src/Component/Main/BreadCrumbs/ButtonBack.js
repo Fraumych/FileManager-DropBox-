@@ -12,7 +12,7 @@ const ButtonBack = (props) => {
    }, [props.currentPathFolder])
 
    return (
-      <button className="btn btn-inverse" href={props.currentPathFolder} onClick={props.handleClickBack} style={{ marginRight: '15px' }} disabled={isDisabled}>Назад</button>
+      <button className="btn btn-inverse" href={props.currentPathFolder} onClick={props.handleClickBack} disabled={isDisabled}>Назад</button>
    )
 
 }

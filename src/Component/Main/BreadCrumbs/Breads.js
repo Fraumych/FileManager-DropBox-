@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { APIContext } from "../../../APIrequest";
 import ButtonBack from "./ButtonBack"
+import Style from "./Breads.module.css"
 
 
 const BreadCrumbs = (props) => {
@@ -34,10 +35,10 @@ const BreadCrumbs = (props) => {
    }
 
    return (
-      <div style={{ display: 'flex', marginBottom: '10px' }}>
+      <div className={Style.BreadCrumbs}>
          <ButtonBack currentPathFolder={props.currentPathFolder} handleClickBack={handleClickBack} />
 
-         <h4 style={{ margin: '5px', display: 'flex' }}>
+         <h4 className={Style.pathCrumbs}>
             Home {pathCrumbs}</h4>
       </div>
    )

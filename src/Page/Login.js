@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { UserContext } from "../UserStore";
 import { useNavigate } from "react-router-dom";
+import Style from "./Login.module.css"
 
 
 const Login = () => {
@@ -17,14 +18,12 @@ const Login = () => {
    })
 
    return (
-      <>
-         <div>
-            <form className="well form-search" style={{ maxWidth: '248px', alignItems: 'center', margin: 'auto', }}>
-               <h3>Вход</h3>
-               <a href={urlAuth} className="btn btn-inverse" style={{ padding: '8px 34px', fontSize: '18px', }}>Войти через DropBox</a>
-            </form>
-         </div>
-      </>
+
+      <form className={`well form-search ${Style.LoginForm}`}>
+         <h3>Вход</h3>
+         <a href={urlAuth} className={`btn btn-inverse ${Style.LoginButton}`}>Войти через DropBox</a>
+      </form>
+
    )
 }
 

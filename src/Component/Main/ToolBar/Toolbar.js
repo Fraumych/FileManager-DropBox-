@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
 import ToolBarButton from "./ToolBarButton";
-
+import Style from "./ToolBar.module.css"
 
 const Toolbar = () => {
    const [modalActive, setModalActive] = useState(false)
@@ -9,7 +9,7 @@ const Toolbar = () => {
 
    return (
       <>
-         <div className="btn-group" style={{ marginBottom: '10px' }}>
+         <div className={`btn-group ${Style.ToolBarList}`}>
             <ToolBarButton setModal={setModalActive}>Копировать</ToolBarButton>
             <ToolBarButton setModal={setModalActive}>Вырезать</ToolBarButton>
             <ToolBarButton setModal={setModalActive}>Удалить</ToolBarButton>

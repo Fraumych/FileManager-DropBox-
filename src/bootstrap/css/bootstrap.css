@@ -2803,7 +2803,7 @@ input[type="submit"].btn.btn-mini {
    *position: relative;
    *z-index: 2;
    overflow: visible;
-   margin-bottom: 18px;
+   margin-bottom: 0px;
 }
 .navbar-inner {
    padding-left: 20px;

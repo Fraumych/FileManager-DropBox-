@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ContentFile from "./ContentFiles/ContentFile";
 import ContentFolder from "./ContentFiles/ContentFolder";
+import Style from "./ListFolder.module.css"
 
 const ListFolder = ({ handleClick, listFolder, setListFolder }) => {
 
@@ -23,14 +24,16 @@ const ListFolder = ({ handleClick, listFolder, setListFolder }) => {
                      setContextList(false)
                   }}>
 
-                  <td style={{ width: '40px' }}> <input type='checkbox' name={item.name} id={item.name} /></td>
+                  <td className={Style.InputColumn}> <input type='checkbox' name={item.name} id={item.name} /></td>
 
                   <td>
-                     {item['.tag'] === 'folder' ?
-                        <ContentFolder item={item} index={index} contextList={contextList} contextMenuButton={contextMenuButton} setContextList={setContextList} handleClick={handleClick} setListFolder={setListFolder} />
-                        :
-                        <ContentFile item={item} index={index} contextList={contextList} contextMenuButton={contextMenuButton} setContextList={setContextList} />
-                     }
+                     <div className={Style.FilesColumn}>
+                        {item['.tag'] === 'folder' ?
+                           <ContentFolder item={item} index={index} contextList={contextList} contextMenuButton={contextMenuButton} setContextList={setContextList} handleClick={handleClick} setListFolder={setListFolder} />
+                           :
+                           <ContentFile item={item} index={index} contextList={contextList} contextMenuButton={contextMenuButton} setContextList={setContextList} />
+                        }
+                     </div>
                   </td>
 
                   <td> {item.size}</td>

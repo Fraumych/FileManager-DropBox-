@@ -1,21 +1,19 @@
 import React from "react";
-import AuthInfo from "./AuthInfo";
-import Nav from "./Nav";
+import AuthInfo from "./AuthInfo/AuthInfo";
+import Style from "./Headers.module.css"
 
 
 const Headers = () => {
 
    return (
       <>
-         <header style={{ backgroundColor: '#2c2c2c', marginBottom: "20px", }}>
+         <header className={Style.header}>
             <div className=" container">
-               <section className="navbar" style={{ display: 'flex', margin: "0", alignItems: "center", minHeight: "60px", justifyContent: 'space-between', }}>
-                  <div style={{ display: 'flex', }}>
-                     <Nav />
+               <section className={`navbar ${Style.navbar}`}>
+                  <div>
+                     <h1 className={Style.siteName}>FileManager.com</h1>
                   </div>
-
                   <AuthInfo />
-
                </section>
             </div>
          </header>

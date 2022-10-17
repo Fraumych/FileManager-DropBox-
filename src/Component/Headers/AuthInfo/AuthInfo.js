@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../UserStore";
-import { APIContext } from "../../APIrequest";
+import { UserContext } from "../../../UserStore";
+import { APIContext } from "../../../APIrequest";
 import { useNavigate } from "react-router-dom";
+import Style from "./AuthInfo.module.css"
 
 
 const AuthInfo = () => {
@@ -33,15 +34,15 @@ const AuthInfo = () => {
    }
 
    return (
-      <div style={{ display: 'flex', alignItems: 'center', }}>{
-         isAuth ?
+      <div className={Style.AuthInfo}>
+         {isAuth ?
             <>
-               <h4 style={{ margin: "0px", paddingRight: '8px', }}>Здравствуйте, {userName} <img style={{ width: '35px', border: '1px solid #999999', borderRadius: '50%' }} src={userPhoto} /></h4>
-               <button className="btn" style={{ margin: "0px", }} onClick={handleLogOut}>Выход</button>
+               <h4 className={Style.UserName}>Здравствуйте, {userName} <img className={Style.UserLogo} src={userPhoto} /></h4>
+               <button className={`btn ${Style.ButtonExit}`} onClick={handleLogOut}>Выход</button>
             </>
             :
-            null
-      }</div>
+            null}
+      </div>
    )
 }
 

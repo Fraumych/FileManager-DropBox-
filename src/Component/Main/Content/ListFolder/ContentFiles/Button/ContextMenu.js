@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { APIContext } from "../../../../../../APIrequest";
+import Style from "./Context.module.css"
 
 const ContextMenuList = ({ itemName, itemPath }) => {
 
@@ -11,12 +12,12 @@ const ContextMenuList = ({ itemName, itemPath }) => {
    }
 
    return (
-      <div style={{ background: 'white', position: 'absolute', padding: '5px', borderRadius: '5px', boxShadow: '0 0 5px black' }}>
-         <p style={{ borderBottom: '2px solid black', textAlign: 'center' }}>{itemName}</p>
-         <div style={{ display: 'flex', flexDirection: 'column', }}>
-            <button className='btn' style={{ marginBottom: '2px' }}>Изменить</button>
-            <button className='btn' style={{ marginBottom: '2px' }} onClick={() => { deleteFile(itemPath) }}>Удалить</button>
-            <button className='btn' style={{ marginBottom: '2px' }}>Добавить</button>
+      <div className={Style.ContextMenu}>
+         <p className={Style.ItemName}>{itemName}</p>
+         <div className={Style.ContextList}>
+            <button className={`btn ${Style.ItemList}`}>Изменить</button>
+            <button className={`btn ${Style.ItemList}`} onClick={() => { deleteFile(itemPath) }}>Удалить</button>
+            <button className={`btn ${Style.ItemList}`}>Добавить</button>
          </div>
       </div>
    )

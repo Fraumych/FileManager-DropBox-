@@ -5,6 +5,7 @@ import Toolbar from "../Component/Main/ToolBar/Toolbar";
 import BreadCrumbs from "../Component/Main/BreadCrumbs/Breads";
 import ListFolder from "../Component/Main/Content/ListFolder/ListFolder"
 import { UserContext } from "../UserStore";
+import Style from "./File.module.css"
 
 const File = () => {
    const { Authorization, getListFolder } = useContext(APIContext)
@@ -72,7 +73,7 @@ const File = () => {
                :
                <tbody>
                   <tr>
-                     <th style={{ textAlign: 'center' }} colSpan={4}><h5 >Папка пуста</h5></th>
+                     <th className={Style.FolderEmpty} colSpan={4}><h5 >Папка пуста</h5></th>
                   </tr>
                </tbody>
             }
