@@ -1,0 +1,15 @@
+{
+   "extends": [
+      "react-app",
+      "react-app/jest"
+   ],
+   "rules": {
+      "react-hooks/exhaustive-deps": "off",
+      "no-console": "warn",
+      "quotes": [
+         "error",
+         "double",
+         "backtick"
+      ]
+   }
+}

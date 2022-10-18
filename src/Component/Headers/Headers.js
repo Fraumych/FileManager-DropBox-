@@ -8,7 +8,7 @@ const Headers = () => {
    return (
       <>
          <header className={Style.header}>
-            <div className=" container">
+            <div className="container">
                <section className={`navbar ${Style.navbar}`}>
                   <div>
                      <h1 className={Style.siteName}>FileManager.com</h1>
