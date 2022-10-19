@@ -1,6 +1,6 @@
 import React from "react";
 import ButtonContext from "./Button/ButtonContext";
-import Style from "./ContentFile.module.css"
+import Style from "./ContentFile.module.css";
 
 const ContentFile = ({ item, contextMenuButton, setContextList, contextList, index }) => {
    return (
@@ -11,7 +11,7 @@ const ContentFile = ({ item, contextMenuButton, setContextList, contextList, ind
          </p>
          <ButtonContext item={item} contextMenuButton={contextMenuButton} setContextList={setContextList} contextList={contextList} index={index} />
       </>
-   )
-}
+   );
+};
 
 export default ContentFile;

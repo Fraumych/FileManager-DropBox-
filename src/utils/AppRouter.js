@@ -10,7 +10,7 @@ const AppRouter = () => {
             <Route key={path} path={path} element={<Component />} exact />
          )}
       </Routes>
-   )
-}
+   );
+};
 
 export default AppRouter;

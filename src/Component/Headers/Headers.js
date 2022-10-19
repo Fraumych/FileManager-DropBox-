@@ -1,6 +1,6 @@
 import React from "react";
 import AuthInfo from "./AuthInfo/AuthInfo";
-import Style from "./Headers.module.css"
+import Style from "./Headers.module.css";
 
 
 const Headers = () => {
@@ -18,7 +18,7 @@ const Headers = () => {
             </div>
          </header>
       </>
-   )
-}
+   );
+};
 
 export default Headers;

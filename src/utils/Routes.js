@@ -1,6 +1,6 @@
-import File from "../Page/File"
-import Login from "../Page/Login"
-import { LOGIN_ROUTE, FILE_ROUTE } from "./const"
+import File from "../Page/File";
+import Login from "../Page/Login";
+import { LOGIN_ROUTE, FILE_ROUTE } from "./const";
 
 export const publicRoutes = [
    {
@@ -11,4 +11,4 @@ export const publicRoutes = [
       path: FILE_ROUTE,
       Component: File
    },
-]
+];

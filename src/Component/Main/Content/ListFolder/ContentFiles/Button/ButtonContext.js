@@ -1,6 +1,6 @@
 import React from "react";
 import ContextMenuList from "./ContextMenu";
-import Style from "./Button.module.css"
+import Style from "./Button.module.css";
 
 const ButtonContext = ({ item, contextMenuButton, setContextList, contextList, index }) => {
    return (
@@ -10,9 +10,9 @@ const ButtonContext = ({ item, contextMenuButton, setContextList, contextList, i
                <button className={`btn ${Style.Button}`} id={index}
                   onClick={() => setContextList(() => {
                      if (contextList) {
-                        return false
+                        return false;
                      } else {
-                        return true
+                        return true;
                      }
                   })}
                >Ещё
@@ -25,7 +25,7 @@ const ButtonContext = ({ item, contextMenuButton, setContextList, contextList, i
             :
             null}
       </div>
-   )
-}
+   );
+};
 
 export default ButtonContext;

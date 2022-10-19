@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
 import ToolBarButton from "./ToolBarButton";
-import Style from "./ToolBar.module.css"
+import Style from "./ToolBar.module.css";
 
 const Toolbar = () => {
-   const [modalActive, setModalActive] = useState(false)
+   const [modalActive, setModalActive] = useState(false);
 
 
    return (
@@ -18,7 +18,7 @@ const Toolbar = () => {
 
          <Modal active={modalActive} setActive={setModalActive} />
       </>
-   )
-}
+   );
+};
 
 export default Toolbar;

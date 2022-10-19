@@ -8,8 +8,15 @@
       "no-console": "warn",
       "quotes": [
          "error",
-         "double",
-         "backtick"
+         "double"
+      ],
+      "jsx-quotes": [
+         "error",
+         "prefer-double"
+      ],
+      "semi": [
+         "warn",
+         "always"
       ]
    }
 }
