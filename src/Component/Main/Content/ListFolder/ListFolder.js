@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import ContentFile from "./ContentFiles/ContentFile";
 import ContentFolder from "./ContentFiles/ContentFolder";
 import Style from "./ListFolder.module.css";
+import ButtonContext from "./ContentFiles/Button/ButtonContext";
 
-const ListFolder = ({ handleClick, listFolder, setListFolder }) => {
+const ListFolder = ({ handleClick, listFolder }) => {
 
    const [contextMenuButton, setContextMenuButton] = useState();
 
@@ -29,12 +30,17 @@ const ListFolder = ({ handleClick, listFolder, setListFolder }) => {
                   <td>
                      <div className={Style.FilesColumn}>
                         {item[".tag"] === "folder" ?
-                           <ContentFolder item={item} index={index} contextList={contextList}
-                              contextMenuButton={contextMenuButton} setContextList={setContextList}
-                              handleClick={handleClick} setListFolder={setListFolder} />
+                           <>
+                              <ContentFolder item={item} handleClick={handleClick} />
+                              <ButtonContext item={item} contextMenuButton={contextMenuButton}
+                                 setContextList={setContextList} contextList={contextList} index={index} />
+                           </>
                            :
-                           <ContentFile item={item} index={index} contextList={contextList}
-                              contextMenuButton={contextMenuButton} setContextList={setContextList} />
+                           <>
+                              <ContentFile item={item} />
+                              <ButtonContext item={item} contextMenuButton={contextMenuButton}
+                                 setContextList={setContextList} contextList={contextList} index={index} />
+                           </>
                         }
                      </div>
                   </td>

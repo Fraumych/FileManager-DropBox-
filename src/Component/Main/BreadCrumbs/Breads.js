@@ -4,14 +4,13 @@ import ButtonBack from "./ButtonBack";
 import Style from "./Breads.module.css";
 
 
-const BreadCrumbs = (props) => {
+const BreadCrumbs = ({ pathFolder, setPathFolder, setListFolder }) => {
 
    const { getListFolder } = useContext(APIContext);
-
    const [pathBack, setPathBack] = useState("");
    const [pathCrumbs, setPathCrumbs] = useState("");
 
-   let path = props.currentPathFolder;
+   let path = pathFolder;
 
    useEffect(() => {
       if (path !== "") {
@@ -28,15 +27,15 @@ const BreadCrumbs = (props) => {
 
    const handleClickBack = () => {
       getListFolder(pathBack).then(result => {
-         props.PathFolder(pathBack);
-         props.ListFolder(result.data);
+         setPathFolder(pathBack);
+         setListFolder(result.data);
       });
 
    };
 
    return (
       <div className={Style.BreadCrumbs}>
-         <ButtonBack currentPathFolder={props.currentPathFolder} handleClickBack={handleClickBack} />
+         <ButtonBack currentPathFolder={pathFolder} handleClickBack={handleClickBack} />
 
          <h4 className={Style.pathCrumbs}>
             Home {pathCrumbs}</h4>

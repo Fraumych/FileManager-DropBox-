@@ -55,7 +55,7 @@ const File = () => {
    return (
       <>
          <Toolbar />
-         <BreadCrumbs currentPathFolder={pathFolder} PathFolder={setPathFolder} ListFolder={setListFolder} />
+         <BreadCrumbs pathFolder={pathFolder} setPathFolder={setPathFolder} setListFolder={setListFolder} />
 
          <table className="table table-bordered">
             <thead>
@@ -69,7 +69,7 @@ const File = () => {
             </thead>
             {listFolder.entries.length > 0 ?
                <tbody>
-                  <ListFolder listFolder={listFolder} handleClick={handleClick} setListFolder={setListFolder} /></tbody>
+                  <ListFolder listFolder={listFolder} handleClick={handleClick} /></tbody>
                :
                <tbody>
                   <tr>
