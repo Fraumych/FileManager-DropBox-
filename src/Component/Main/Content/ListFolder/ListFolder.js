@@ -10,7 +10,6 @@ const ListFolder = ({ handleClick, listFolder }) => {
 
    const [contextList, setContextList] = useState(false);
 
-
    return (
       <>
          {listFolder.entries.map((item, index) => {
